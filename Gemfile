@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'mongoid'
 gem 'devise'
+gem 'cancan'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -50,11 +51,15 @@ group :development, :test do
   gem 'pry-debugger'
 
   gem 'parallel_tests'
+  gem 'ffaker'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'mongoid-rspec'
+  # gem 'json_spec'
 
+  # gem 'vcr'
+  # gem 'webmock'
   gem 'headless'
   gem 'launchy'
   gem 'capybara'
@@ -63,4 +68,10 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'terminal-notifier-guard'
   gem 'spring-commands-rspec'
+  gem 'database_cleaner'
+end
+
+group :test do
+  gem 'simplecov',                      require: false
+  gem 'coveralls',                      require: false
 end
