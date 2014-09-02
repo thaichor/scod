@@ -1,11 +1,14 @@
 class User
   include Mongoid::Document
+  include Mongoid::Timestamps
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   ## Database authenticatable
+  field :username,           type: String
   field :email,              type: String, default: ''
   field :encrypted_password, type: String, default: ''
 
@@ -33,4 +36,22 @@ class User
   # field :failed_attempts, type: Integer, default: 0 # Only if lock strategy is :failed_attempts
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
+
+  ## Relations
+  embeds_one  :role,          class_name: 'Role'
+
+  ## Validations
+  validates   :username,      presence: true, uniqueness: { case_sensitive: false }
+  validates   :role,          presence: true
+
+  ## Callbacks
+  after_initialize :set_default_role
+
+  ## Delegations
+  delegate    :admin?, :member?, to: :role
+
+  protected
+  def set_default_role
+    self.role ||= Role.find_or_create_by(name: 'member')
+  end
 end
