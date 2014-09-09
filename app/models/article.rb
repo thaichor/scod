@@ -3,13 +3,13 @@ class Article
   include Mongoid::Timestamps
 
   ## Fields
-  field :name,      type: String
+  field :title,     type: String
   field :content,   type: String
 
   ## Relations
   ## only id, username, email
-  embeds_one :author,               class_name: 'Embed::User'
+  belongs_to :author,     class_name: 'User', inverse_of: :articles
 
   ## Validations
-  validates  :name, :content,       presence: true
+  validates  :title, :content, :author,     presence: true
 end

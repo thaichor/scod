@@ -1,0 +1,14 @@
+= form_for @article, html: { class: 'form-horizontal col-md-10' } do |f|
+  .form-group
+    = f.label :title, class: 'col-sm-4 control-label'
+    .col-sm-8
+      = f.text_field :title, placeholder: 'Title', autofocus: true, class: 'form-control'
+
+  .form-group
+    = f.label :content, class: 'col-sm-4 control-label'
+    .col-sm-8
+      = f.text_area :content, placeholder: 'Content', cols: 20, rows: 20, class: 'form-control'
+
+  .form-group
+    .col-sm-offset-4.col-sm-8
+      = f.submit 'Create', class: 'btn btn-primary'

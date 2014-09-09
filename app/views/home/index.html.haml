@@ -1,10 +1,15 @@
 .container
+
+
+  %header
+    %nav
+      %ul
+        %li Home
+        %li= link_to 'Article', articles_path
+        %li Did You Know
+        %li About Us
+
   .row
     = link_to 'Sign In', new_user_session_path
   .row
     = link_to 'Sign Out', destroy_user_session_path, method: :delete
-
-
-
-
-%p HELLO

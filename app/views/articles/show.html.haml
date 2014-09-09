@@ -1,0 +1,7 @@
+.container
+  %header
+    %h1= @article.title
+    %p= @article.content
+
+  .row
+    = link_to 'Edit', edit_article_path(@article)
