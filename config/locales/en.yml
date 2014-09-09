@@ -20,4 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      "content/rich_text":
+        name: Page name
+  helpers:
+    label:
+      user:
+        password_confirmation: Confirm

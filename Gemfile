@@ -25,7 +25,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 
-gem 'mongoid'
+gem 'mongoid',                '4.0.0.rc2'
 gem 'devise'
 gem 'cancan'
 
@@ -55,7 +55,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
-  gem 'mongoid-rspec'
+  gem 'mongoid-rspec',             '~> 1.10.0'
   # gem 'json_spec'
 
   # gem 'vcr'
@@ -72,6 +72,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'simplecov',                      require: false
-  gem 'coveralls',                      require: false
+  gem 'simplecov',                 require: false
+  gem 'coveralls',                 require: false
 end

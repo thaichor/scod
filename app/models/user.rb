@@ -50,6 +50,13 @@ class User
   ## Delegations
   delegate    :admin?, :member?, to: :role
 
+  class << self
+    def serialize_from_session(key, salt)
+      record = to_adapter.get(key[0]["$oid"])
+      record if record && record.authenticatable_salt == salt
+    end
+  end
+
   protected
   def set_default_role
     self.role ||= Role.find_or_create_by(name: 'member')
