@@ -1,15 +1,81 @@
 .container
+  %nav
+    %ul.nav.nav-pills
+      %li= link_to 'Home', root_path
+      %li= link_to 'Article', articles_path
+      - if user_signed_in?
+        %li= link_to 'Sign Out', destroy_user_session_path, method: :delete
+      - else
+        %li= link_to 'Sign In', new_user_session_path
 
-
-  %header
-    %nav
-      %ul
-        %li Home
-        %li= link_to 'Article', articles_path
-        %li Did You Know
-        %li About Us
-
+  %h2 Body
   .row
-    = link_to 'Sign In', new_user_session_path
+    .col-md-4
+      .thumbnail
+        = image_tag 'thumbnail-1.jpg', class: 'img-rounded'
+        .caption.text-center
+          %h3 Thumbnail label
+          %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id ...</p>
+          %p
+            = link_to 'Button', class: 'btn btn-warning'
+            = link_to 'Button', class: 'btn btn-default'
+
+    .col-md-4
+      .thumbnail
+        = image_tag 'thumbnail-1.jpg', class: 'img-rounded'
+        .caption.text-center
+          %h3 Thumbnail label
+          %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id ...</p>
+          %p
+            = link_to 'Button', class: 'btn btn-warning'
+            = link_to 'Button', class: 'btn btn-default'
+
+    .col-md-4
+      .thumbnail
+        = image_tag 'thumbnail-1.jpg', class: 'img-rounded'
+        .caption.text-center
+          %h3 Thumbnail label
+          %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id ...</p>
+          %p
+            = link_to 'Button', class: 'btn btn-warning'
+            = link_to 'Button', class: 'btn btn-default'
+
+  %h2 Footer
   .row
-    = link_to 'Sign Out', destroy_user_session_path, method: :delete
+    .col-md-12
+      %footer.footer
+        .container
+          .clearfix
+            .footer-logo
+              = link_to root_path do
+                = image_tag 'footer-logo.png'
+                Bootflat
+
+            %dl.footer-nav
+              %dt.nav-title PORTFOLIO
+              %dd.nav-item <a href="#">Web Design</a></dd>
+              %dd.nav-item <a href="#">Branding &amp; Identity</a></dd>
+              %dd.nav-item <a href="#">Mobile Design</a></dd>
+              %dd.nav-item <a href="#">Print</a></dd>
+              %dd.nav-item <a href="#">User Interface</a></dd>
+
+            %dl.footer-nav
+              %dt.nav-title ABOUT
+              %dd.nav-item <a href="#">The Company</a></dd>
+              %dd.nav-item <a href="#">History</a></dd>
+              %dd.nav-item <a href="#">Vision</a></dd>
+
+            %dl.footer-nav
+              %dt.nav-title GALLERY
+              %dd.nav-item <a href="#">Flickr</a></dd>
+              %dd.nav-item <a href="#">Picasa</a></dd>
+              %dd.nav-item <a href="#">iStockPhoto</a></dd>
+              %dd.nav-item <a href="#">PhotoDune</a></dd>
+
+            %dl.footer-nav
+              %dt.nav-title CONTACT
+              %dd.nav-item <a href="#">Basic Info</a></dd>
+              %dd.nav-item <a href="#">Map</a></dd>
+              %dd.nav-item <a href="#">Conctact Form</a></dd>
+
+          .footer-copyright.text-center Copyright © 2014 Flathemes.All rights reserved.
