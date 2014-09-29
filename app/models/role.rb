@@ -15,7 +15,6 @@ class Role
     ROLES
   end
 
-
   ## Instance methods
   ROLES.each do |role|
     define_method("#{role}?") do
