@@ -8,9 +8,7 @@ class Article
 
   ## Relations
   ## only id, username, email
-  belongs_to :author,     class_name: 'User', inverse_of: :articles
-
-  attr_accessor :title, :content, :author
+  belongs_to :author,     class_name: 'User'
 
   ## Validations
   validates  :title, :content, :author,     presence: true

@@ -39,7 +39,7 @@ class User
 
   ## Relations
   embeds_one  :role,          class_name: 'Role'
-  has_many    :articles,      class_name: 'Article', inverse_of: :author
+  has_many    :articles,      class_name: 'Article'
 
   ## Validations
   validates   :username,      presence: true, uniqueness: { case_sensitive: false }

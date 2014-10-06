@@ -13,8 +13,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(article_params)
-    @article.author = current_user
+    @article = current_user.articles.build article_params
     authorize! :create, @article
 
     if @article.save
@@ -35,7 +34,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.find(params[:id])
+    @article = current_user.articles.find params[:id]
     authorize! :show, @articles
 
     if @article.update_attributes(article_params)
